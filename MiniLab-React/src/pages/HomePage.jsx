@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 export const HomePage = ({ items, onDelete }) => {
   return (
     <div>
@@ -7,7 +7,7 @@ export const HomePage = ({ items, onDelete }) => {
       <ul>
         {items.map((item) => (
           <div key={item.id}>
-            <h3>{item.title}</h3>
+           <Link to={`/item/${item.id}`}><h3>{item.title}</h3></Link> 
             <p>{item.description}</p>
             <p>Price:${item.price}</p>
             <p>Stock:{item.stock}</p>
