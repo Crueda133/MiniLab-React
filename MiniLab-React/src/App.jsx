@@ -3,11 +3,10 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
 import { HomePage } from "./pages/HomePage";
-import { ItemDetails } from "./pages/ItemDetails"; 
-import { AboutPage } from "./pages/AboutPage"; 
-import { NotFound } from "./pages/NotFound"; 
+import { ItemDetails } from "./pages/ItemDetails";
+import { AboutPage } from "./pages/AboutPage";
+import { NotFound } from "./pages/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 
 import dataJson from "./assets/data.json";
 import { useState } from "react";
@@ -22,19 +21,23 @@ function App() {
 
   return (
     <Router>
-    <div className="app container">
-      <Navbar />
-      <div className="content-container">
-        <Sidebar />
-        <Routes>
-            <Route path="/" element={<HomePage items={data} onDelete={handleDelete} />} />
-            <Route path="/item/:id" element={<ItemDetails items={data} />} />
+      <div className="appContainer">
+        <Navbar />
+        <div className="content-container">
+          <Sidebar />
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage items={data} onDelete={handleDelete} />}
+            />
             <Route path="/about" element={<AboutPage />} />
+
+            <Route path="/item/:id" element={<ItemDetails items={data} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     </Router>
   );
 }

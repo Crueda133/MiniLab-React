@@ -66,3 +66,60 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.content-container {
+  background-color: #535bf2;
+  display: flex;
+  text-align: center;
+  color: black;
+}
+
+.navbar,
+.footer,
+.sidebar {
+  border: 2px solid black;
+}
+
+.product-item {
+  border: 2px solid black;
+  margin: 10px; /* Optional */
+  padding: 10px; /* Optional */
+}
+
+.content-container {
+  flex: 1;
+}
+
+.sidebar {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Navbar classes to make it prettier :)  */
+
+.navbar {
+  border: 2px solid black;
+  padding: 10px; /* Adds space inside the navbar */
+}
+
+.navbar-list {
+  display: flex; /* Arranges items side-by-side */
+  list-style: none; /* Removes default list styling */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin-right: 20px; /* Adds spacing between items */
+}
+
+.navbar a {
+  font-size: 1.5em; /* Makes the text bigger */
+  text-decoration: none; /* Removes the underline */
+  color: black; /* Sets text color */
+}
+
+.navbar a:hover {
+  color: #535bf2; /* Optional: changes color on hover */
+}
