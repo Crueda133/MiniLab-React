@@ -3,13 +3,12 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
 import { HomePage } from "./pages/HomePage";
-import { ItemDetails } from "./pages/ItemDetails"; 
-import { AboutPage } from "./pages/AboutPage"; 
-import { NotFound } from "./pages/NotFound"; 
+import { ItemDetails } from "./pages/ItemDetails";
+import { AboutPage } from "./pages/AboutPage";
+import { NotFound } from "./pages/NotFound";
 import { AddItemForm } from "./components/AddItemForm";
 import { EditItemForm } from "./components/EditItemForm";
 import { Routes, Route } from "react-router-dom";
-
 
 import dataJson from "./assets/data.json";
 import { useState } from "react";
@@ -42,41 +41,44 @@ function App() {
 
   return (
     <div className="app container">
-    <Navbar />
-      
+      <Navbar />
+
+      <AddItemForm onAddItem={handleAddItem} />
+
       <div className="content-container">
         <Sidebar />
         <Routes>
-        <Route 
-              path="/" 
-              element={
-                <div>
-                  <HomePage 
+          <Route
+            path="/"
+            element={
+              <div>
+                <HomePage
                   items={data}
-                   onDelete={handleDelete}
-                    onEdit={handleEditItem} 
-                    />
-                  <AddItemForm onAddItem={handleAddItem} />
-                </div>
-              } 
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/item/:id" element={<ItemDetails items={data} />} />
-            <Route 
-              path="/item/:id/edit" 
-              element={
-                editingItem ? (
-                  <EditItemForm item={editingItem} onUpdateItem={handleUpdateItem} />
-                ) : (
-                  <NotFound />
-                )
-              } 
+                  onDelete={handleDelete}
+                  onEdit={handleEditItem}
+                />
+              </div>
+            }
           />
-          </Routes>
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/item/:id" element={<ItemDetails items={data} />} />
+          <Route
+            path="/item/:id/edit"
+            element={
+              editingItem ? (
+                <EditItemForm
+                  item={editingItem}
+                  onUpdateItem={handleUpdateItem}
+                />
+              ) : (
+                <NotFound />
+              )
+            }
+          />
+        </Routes>
         <Footer />
-        </div>
       </div>
-   
+    </div>
   );
 }
 
