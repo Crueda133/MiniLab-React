@@ -10,6 +10,7 @@ import { AddItemForm } from "./components/AddItemForm";
 import { EditItemForm } from "./components/EditItemForm";
 import { Routes, Route } from "react-router-dom";
 
+
 import dataJson from "./assets/data.json";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -59,6 +60,7 @@ function App() {
                 </div>
               } 
             />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/item/:id" element={<ItemDetails items={data} />} />
             <Route 
               path="/item/:id/edit" 
@@ -69,13 +71,12 @@ function App() {
                   <NotFound />
                 )
               } 
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="*" element={<NotFound />} />
+          />
           </Routes>
+        <Footer />
         </div>
-      <Footer />
-    </div>
+      </div>
+   
   );
 }
 
