@@ -20,7 +20,7 @@ function App() {
   const navigate = useNavigate();
 
   const handleAddItem = (newItem) => {
-    setData((prevData) => [...prevData, newItem]);
+    setData((prevData) => [newItem, ...prevData]);
   };
 
   const handleDelete = (id) => {
@@ -40,44 +40,44 @@ function App() {
   };
 
   return (
-    <div className="app container">
+    <div className="app">
       <Navbar />
-  
-      <AddItemForm onAddItem={handleAddItem} />
-  
       <div className="content-container">
         <Sidebar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <HomePage
-                  items={data}
-                  onDelete={handleDelete}
-                  onEdit={handleEditItem}
-                />
-              </div>
-            }
-          />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/item/:id" element={<ItemDetails items={data} />} />
-          <Route
-            path="/item/:id/edit"
-            element={
-              editingItem ? (
-                <EditItemForm
-                  item={editingItem}
-                  onUpdateItem={handleUpdateItem}
-                />
-              ) : (
-                <NotFound />
-              )
-            }
-          />
-        </Routes>
+        <div className="main-content">
+          {/* <AddItemForm onAddItem={handleAddItem} /> */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <AddItemForm onAddItem={handleAddItem} />
+                  <HomePage
+                    items={data}
+                    onDelete={handleDelete}
+                    onEdit={handleEditItem}
+                  />
+                </div>
+              }
+            />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/item/:id" element={<ItemDetails items={data} />} />
+            <Route
+              path="/item/:id/edit"
+              element={
+                editingItem ? (
+                  <EditItemForm
+                    item={editingItem}
+                    onUpdateItem={handleUpdateItem}
+                  />
+                ) : (
+                  <NotFound />
+                )
+              }
+            />
+          </Routes>
+        </div>
       </div>
-  
       <Footer />
     </div>
   );
