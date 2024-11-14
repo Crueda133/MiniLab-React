@@ -9,6 +9,8 @@ export const ItemDetails = ({ items }) => {
     return <h2>Item not found</h2>;
   }
 
+  const fallbackImage = "https://via.placeholder.com/150";
+
   return (
     <div>
       <h2>{item.title}</h2>
@@ -16,6 +18,28 @@ export const ItemDetails = ({ items }) => {
       <p>Price: ${item.price}</p>
       <p>Stock: {item.stock}</p>
       <span>In Stock: {item.stock > 0 ? "✅" : "❌"}</span>
+
+      <div className="item-images">
+        <h3>Images</h3>
+        {item.images.length > 0 ? (
+          <div className="image-grid">
+            {item.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`${item.title} - ${index + 1}`}
+                className="item-image"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = fallbackImage;
+                }}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>No images available</p>
+        )}
+      </div>
     </div>
   );
 };

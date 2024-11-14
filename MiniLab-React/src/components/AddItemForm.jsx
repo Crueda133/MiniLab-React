@@ -5,21 +5,30 @@ export const AddItemForm = ({ onAddItem }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
+  const [images, setImages] = useState(["", "", "", "", ""]);
+
+  const handleImageChange = (index, value) => {
+    const newImages = [...images];
+    newImages[index] = value;
+    setImages(newImages);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newItem = {
-      id: Date.now(), 
+      id: Date.now(),
       title,
       description,
       price: parseFloat(price),
       stock: parseInt(stock, 10),
+      images: images.filter((img) => img !== ""),
     };
     onAddItem(newItem);
     setTitle("");
     setDescription("");
     setPrice("");
     setStock("");
+    setImages(["", "", "", "", ""]);
   };
 
   return (
@@ -53,6 +62,16 @@ export const AddItemForm = ({ onAddItem }) => {
         onChange={(e) => setStock(e.target.value)}
         required
       />
+      <h3>Images (Add up to 5 URLs)</h3>
+      {images.map((image, index) => (
+        <input
+          key={index}
+          type="text"
+          placeholder={`Image URL ${index + 1}`}
+          value={image}
+          onChange={(e) => handleImageChange(index, e.target.value)}
+        />
+      ))}
       <button type="submit">Add Item</button>
     </form>
   );
