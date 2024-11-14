@@ -41,9 +41,9 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar className="navbar" />
       <div className="content-container">
-        <Sidebar />
+        <Sidebar className="sidebar" />
         <div className="main-content">
           {/* <AddItemForm onAddItem={handleAddItem} /> */}
           <Routes>
