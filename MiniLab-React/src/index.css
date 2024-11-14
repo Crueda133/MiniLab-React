@@ -37,8 +37,7 @@ body {
 }
 
 .sidebar {
-  float: left;
-  flex: 1;
+  flex: 0 0 180px;
   padding: 1rem;
   border: 1px solid var(--border-color);
   background-color: var(--background-color-dark);
@@ -52,7 +51,7 @@ body {
   flex-direction: row;
   flex: 1;
   padding: 20px;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   justify-content: flex-start;
   box-sizing: border-box;
