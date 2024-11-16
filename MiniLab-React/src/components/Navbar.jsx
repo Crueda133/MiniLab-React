@@ -1,7 +1,7 @@
 // The Navbar component that displays the app’s name and logo.
 
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/tech.webp";
 
 export const Navbar = () => {
   return (
