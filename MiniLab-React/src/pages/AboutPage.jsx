@@ -7,10 +7,7 @@ export const AboutPage = () => {
       <p>This is an e-commerce application for tech products.</p>
       <h3>Team Members</h3>
       <ul>
-        <li>
-          <a href="" target="_blank" rel="n">Name</a>
-        </li>
-        {/* Add our names here */}
+        <a>Shayna & Cristina</a>
       </ul>
     </div>
   );
